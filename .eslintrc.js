@@ -22,7 +22,5 @@ module.exports = {
     'react',
   ],
   rules: {
-    "linebreak-style": ["error", "windows"],
-    "indent": [2, 2, {"SwitchCase": 1}],
   },
 };
