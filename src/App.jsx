@@ -10,11 +10,11 @@ class App extends Component {
     this.buttonStateChanger = this.buttonStateChanger.bind(this);
     console.log('Component started');
     this.state = { pressed: true };
-
   }
   // state = {
   //   pressed: false,
   // };
+
 
   buttonStateChanger() {
     const { pressed } = this.state;

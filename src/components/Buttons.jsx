@@ -1,10 +1,12 @@
 import React from 'react';
+import './Button.css';
 
-const button = (props) => {
+const button = (props, state) => {
   const { title, clicked } = props;
+
   return (
     <div>
-      <button type="button" onClick={clicked}>{title}</button>
+      <button type="button" className='initialButton' onClick={clicked}>{title}</button>
     </div>
   );
 };
