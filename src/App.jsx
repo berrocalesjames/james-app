@@ -7,25 +7,27 @@ import Button from './components/Buttons';
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      pressed: false,
-    };
-    this.buttonStateChanger = this.buttonStateChanger.bind(this)
+    this.buttonStateChanger = this.buttonStateChanger.bind(this);
     console.log('Component started');
-    console.log(this.state)
+    this.state = { pressed: true };
+
   }
+  // state = {
+  //   pressed: false,
+  // };
 
   buttonStateChanger() {
-    const buttonState = this.state.pressed;
-    this.setState({ pressed: !buttonState });
-    console.log('State changed to true!');
-    console.log(this.state)
+    const { pressed } = this.state;
+    this.setState({ pressed: !pressed });
+    // this.setState({ pressed: !this.state.pressed });
+    console.log(`State change to ${pressed}!`);
+    console.log(this.state);
   }
 
   render() {
     return (
       <div className="App">
-        <Button title="Press Me!!" clicked={this.buttonStateChanger}/>
+        <Button title="Press Me!!" clicked={this.buttonStateChanger} />
         <Button title="Tap Me!!" />
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
