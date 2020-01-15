@@ -15,8 +15,9 @@ class App extends Component {
   //   pressed: false,
   // };
 
-
-  buttonStateChanger() {
+  buttonStateChanger(e) {
+    e.preventDefault();
+    e.target.style.background = 'red';
     const { pressed } = this.state;
     this.setState({ pressed: !pressed });
     // this.setState({ pressed: !this.state.pressed });
