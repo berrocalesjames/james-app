@@ -9,7 +9,7 @@ class Button extends PureComponent {
   constructor(props) {
     super(props);
     this.buttonStateChanger = this.buttonStateChanger.bind(this);
-    console.log('Component started');
+    console.log('Button Component started');
     this.state = { pressed: true };
     this.btnClass = 'initialButton';
   }
@@ -32,6 +32,7 @@ class Button extends PureComponent {
   // upon calling. Also made the Button component return
   // statement more readable.
   render() {
+    const { title } = this.props;
     return (
       <div>
         <button
@@ -39,7 +40,7 @@ class Button extends PureComponent {
           className={this.btnClass}
           onClick={this.buttonStateChanger}
         >
-            Press Me!
+          {title}
         </button>
       </div>
     );
