@@ -11,23 +11,36 @@ class Button extends PureComponent {
     this.buttonStateChanger = this.buttonStateChanger.bind(this);
     console.log('Component started');
     this.state = { pressed: true };
+    this.btnClass = 'initialButton';
   }
 
+  // Fixed issue of tapping DOM directly. Instead of modifying
+  // the target Object. I created a property on the Button
+  // component called btnClass containing the Button.css class
+  // name. The function buttonStateChanger now modifies the
+  // button in the Virtual DOM and React handles the rest.
   buttonStateChanger() {
-    // e.preventDefault();
-    // e.target.style.background = 'red';
+    console.log('Button State Changing');
+    this.btnClass = 'pressedButton';
     const { pressed } = this.state;
     this.setState({ pressed: !pressed });
-    // this.setState({ pressed: !this.state.pressed });
     console.log(`State change to ${pressed}!`);
-    console.log(this.state);
   }
 
-
+  // Fixed hardcoding by calling instance twice in App.jsx
+  // and changing Button component to create only one button
+  // upon calling. Also made the Button component return
+  // statement more readable.
   render() {
     return (
       <div>
-        <button type="button" className="initialButton" onClick={this.buttonStateChanger}>Press Me!</button>
+        <button
+          type="button"
+          className={this.btnClass}
+          onClick={this.buttonStateChanger}
+        >
+            Press Me!
+        </button>
       </div>
     );
   }
