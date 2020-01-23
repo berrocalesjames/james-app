@@ -13,9 +13,9 @@ class Button extends PureComponent {
     this.state = { pressed: true };
   }
 
-  buttonStateChanger(e) {
-    e.preventDefault();
-    e.target.style.background = 'red';
+  buttonStateChanger() {
+    // e.preventDefault();
+    // e.target.style.background = 'red';
     const { pressed } = this.state;
     this.setState({ pressed: !pressed });
     // this.setState({ pressed: !this.state.pressed });

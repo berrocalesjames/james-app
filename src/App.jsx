@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import Button from './components/Button/Buttons';
+import Button from './components/Button/Button';
 
 
 class App extends PureComponent {
