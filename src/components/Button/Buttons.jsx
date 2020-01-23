@@ -1,3 +1,7 @@
+// Fix hardcode issues
+// Match imports
+// Dont tap DOM directly
+
 import React, { PureComponent } from 'react';
 import './Button.css';
 
@@ -24,8 +28,6 @@ class Button extends PureComponent {
     return (
       <div>
         <button type="button" className="initialButton" onClick={this.buttonStateChanger}>Press Me!</button>
-        <br />
-        <button type="button" className="initialButton" onClick={this.buttonStateChanger}>Tap Me!!</button>
       </div>
     );
   }
