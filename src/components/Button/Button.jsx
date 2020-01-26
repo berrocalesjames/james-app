@@ -1,6 +1,3 @@
-// Fix hardcode issues
-// Match imports
-// Dont tap DOM directly
 
 import React, { PureComponent } from 'react';
 import './Button.css';
@@ -10,21 +7,24 @@ class Button extends PureComponent {
     super(props);
     this.buttonStateChanger = this.buttonStateChanger.bind(this);
     console.log('Button Component started');
-    this.state = { pressed: true };
-    this.btnClass = 'initialButton';
+    this.state = {
+      pressed: true,
+      btnClass: 'initialButton',
+    };
+    //this.btnClass = 'initialButton';
   }
 
   // Fixed issue of tapping DOM directly. Instead of modifying
   // the target Object. I created a property on the Button
   // component called btnClass containing the Button.css class
-  // name. The function buttonStateChanger now modifies the
-  // button in the Virtual DOM and React handles the rest.
+  // name 'initalButton'. The function buttonStateChanger now modifies the
+  // btnClass to 'pressedButton', the Button.css class.
   buttonStateChanger() {
     console.log('Button State Changing');
-    this.btnClass = 'pressedButton';
-    const { pressed } = this.state;
-    this.setState({ pressed: !pressed });
-    console.log(`State change to ${pressed}!`);
+    this.setState = 'ressedButton';
+    //const { pressed } = this.state;
+    //this.setState({ pressed: !pressed });
+    //console.log(`State change to ${pressed}!`);
   }
 
   // Fixed hardcoding by calling instance twice in App.jsx
