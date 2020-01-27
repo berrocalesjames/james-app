@@ -14,9 +14,10 @@ class Button extends PureComponent {
 
   buttonStateChanger() {
     console.log('Button State Changing');
-    this.setState({ pressed: !this.state.pressed});
-    this.setState({ btnClass: this.state.pressed ? 'pressedButton' : 'initialButton' });
-    console.log(`State change to ${this.state.pressed}!`);
+    this.setState({ 
+      pressed: !this.state.pressed,
+      btnClass: this.state.pressed ? 'pressedButton' : 'initialButton'
+    });
   }
 
   render() {
