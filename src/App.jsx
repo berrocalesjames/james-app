@@ -2,8 +2,9 @@ import React, { PureComponent } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import Button from './components/Button/Button';
+import InputBox from './components/Input/inputBox';
 
-// Create input box component similar to Button.
+// Create input box component similar to Button. |) () |\| |<
 // On App create a new variable called username and add it into state
 // When a user types into the input box it needs to update the variable.
 // Whatever is being updated needs to be displayed in the input box.
@@ -17,12 +18,16 @@ class App extends PureComponent {
     super(props);
     console.log('App Component Started');
   }
+  state = {
+    username: "",
+  }
 
   render() {
     return (
       <div className="App">
         <Button title="Press Me" />
         <Button title="Tap Me" />
+        <InputBox />
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <p>
