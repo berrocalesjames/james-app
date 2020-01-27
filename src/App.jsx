@@ -5,7 +5,7 @@ import Button from './components/Button/Button';
 import InputBox from './components/Input/inputBox';
 
 // Create input box component similar to Button. |) () |\| |<
-// On App create a new variable called username and add it into state
+// On App create a new variable called username and add it into state. |) () |\| |<
 // When a user types into the input box it needs to update the variable.
 // Whatever is being updated needs to be displayed in the input box.
 // The variable is on App so whatever I change needs to be updated on App
@@ -17,9 +17,15 @@ class App extends PureComponent {
   constructor(props) {
     super(props);
     console.log('App Component Started');
+    this.handleChange = this.handleChange.bind(this);
   }
   state = {
     username: "",
+  }
+
+  handleChange() {
+    let input = ""
+    this.setState({ username: {input} })
   }
 
   render() {
@@ -28,6 +34,7 @@ class App extends PureComponent {
         <Button title="Press Me" />
         <Button title="Tap Me" />
         <InputBox />
+        <p>{this.state.username}</p>
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <p>

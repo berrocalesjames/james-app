@@ -3,10 +3,9 @@ import React from 'react';
 const InputBox = () => (
   <form>
     <label>
-        Name:
-      <input type="text" value="" />
+        Username:
+      <input type="text" id="username" />
     </label>
-    <input type="submit" value="Submit" />
   </form>
 );
 
