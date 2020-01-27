@@ -1,4 +1,3 @@
-
 import React, { PureComponent } from 'react';
 import './Button.css';
 
@@ -7,7 +6,7 @@ class Button extends PureComponent {
     super(props);
     this.buttonStateChanger = this.buttonStateChanger.bind(this);
     console.log('Button Component started');
-    };
+  }
   state = {
     pressed: true,
     btnClass: 'initialButton',
@@ -15,9 +14,7 @@ class Button extends PureComponent {
 
   buttonStateChanger() {
     console.log('Button State Changing');
-      this.setState({
-      pressed: !this.state.pressed,
-    });
+    this.setState({ pressed: !this.state.pressed});
     this.setState({ btnClass: this.state.pressed ? 'initialButton' : 'pressedButton' });
     console.log(`State change to ${this.state.pressed}!`);
   }
