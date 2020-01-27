@@ -5,7 +5,8 @@ import Button from './components/Button/Button';
 
 // Create input box component similar to Button.
 // On App create a new variable called username and add it into state
-// When a user types into the input box it needs to update the variable and whatever is being updated needs to be displayed in the input box.
+// When a user types into the input box it needs to update the variable.
+// Whatever is being updated needs to be displayed in the input box.
 // The variable is on App so whatever I change needs to be updated on App
 // Try onChange first.
 // no state in input component. State must be inculded in the parent of input
