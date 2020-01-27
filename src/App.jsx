@@ -5,15 +5,16 @@ import Button from './components/Button/Button';
 
 
 class App extends PureComponent {
-  // state = {
-  //   pressed: false,
-  // };
+  constructor(props) {
+    super(props);
+    console.log('App Component Started');
+  }
 
   render() {
     return (
       <div className="App">
-        <Button />
-        <Button />
+        <Button title="Press Me" />
+        <Button title="Tap Me" />
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <p>
