@@ -2,12 +2,13 @@ import React, { PureComponent } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import Button from './components/Button/Button';
-import InputBox from './components/Input/inputBox';
+import TextBox from './components/Input/TextBox';
 
 // Create input box component similar to Button. |) () |\| |<
 // On App create a new variable called username and add it into state. |) () |\| |<
-// When a user types into the input box it needs to update the variable.
-// Whatever is being updated needs to be displayed in the input box.
+// When a user types into the input box it needs to update the variable. |) () |\| |<
+  // I need to create a <p> field to display text |) () |\| |<
+// Whatever is being updated needs to be displayed
 // The variable is on App so whatever I change needs to be updated on App
 // Try onChange first.
 // no state in input component. State must be inculded in the parent of input
@@ -23,9 +24,8 @@ class App extends PureComponent {
     username: "",
   }
 
-  handleChange() {
-    let input = ""
-    this.setState({ username: {input} })
+  handleChange(event) {
+    this.setState({ username: event.target.value });
   }
 
   render() {
@@ -33,7 +33,7 @@ class App extends PureComponent {
       <div className="App">
         <Button title="Press Me" />
         <Button title="Tap Me" />
-        <InputBox />
+        <TextBox changed={this.handleChange} />
         <p>{this.state.username}</p>
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
