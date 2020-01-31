@@ -5,19 +5,22 @@ class Select extends Component {
     super(props);
     this.state = {
       value: '',
+      gender: [
+        'gender fluid', 'gender variant', 'genderqueer', 'gender questioning',
+        'gender nonconforming', 'agender', 'bigender', 'cisgender', 'cisgender female', 'cisgender male',
+      ],
     };
   }
 
   render() {
-    const { value } = this.state;
+    const { gender } = this.state;
+    const { title } = this.props;
     return (
       <form>
         <label>
-          <select value={value} onChange={this.handleChange}>
-            <option value="grapefruit">Grapefruit</option>
-            <option value="lime">Lime</option>
-            <option value="coconut">Coconut</option>
-            <option value="mango">Mango</option>
+              {title}
+          <select value={['gender fluid', 'gender variant', 'genderqueer', 'gender questioning',
+        'gender nonconforming', 'agender', 'bigender', 'cisgender', 'cisgender female', 'cisgender male',]} onChange={this.handleChange} >
           </select>
         </label>
       </form>

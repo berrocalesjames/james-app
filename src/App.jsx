@@ -17,6 +17,8 @@ import Select from './components/Input/Select';
 6. Second - Hobbies: sports, crafts, academics, nature, artistry, gaming, other
    --can select more than one option
    --"other" should have an input text box
+Q1. What happens if I put the arrays in App/state? If I want the Select component to be as
+    generic as possible, then specific state data should be consolidated to App? right?
 */
 
 class App extends PureComponent {
@@ -40,6 +42,8 @@ class App extends PureComponent {
         <Button title="Press Me" />
         <Button title="Tap Me" />
         <TextBox value={value} changed={this.handleChange} />
+        <Select title="Choose one gender identification" />
+        <Select title="Choose one or more hobbies" />
         <p>{value}</p>
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
