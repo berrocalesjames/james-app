@@ -1,17 +1,12 @@
 import React from 'react';
 
 const TextBox = (props) => {
-  const { changed } = props;
+  const { changed, value } = props;
   return (
     <form>
       <label>
           Username:
-        <input
-          type="text"
-          id="username"
-          placeholder="Type Text here"
-          onChange={changed}
-        />
+        <input type="text" value={value} onChange={changed} />
       </label>
     </form>
   );

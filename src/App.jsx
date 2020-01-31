@@ -20,22 +20,22 @@ class App extends PureComponent {
     console.log('App Component Started');
     this.handleChange = this.handleChange.bind(this);
     this.state = {
-      username: '',
+      value: '',
     };
   }
 
   handleChange(event) {
-    this.setState({ username: event.target.value });
+    this.setState({ value: event.target.value });
   }
 
   render() {
-    const { username } = this.state;
+    const { value } = this.state;
     return (
       <div className="App">
         <Button title="Press Me" />
         <Button title="Tap Me" />
-        <TextBox changed={this.handleChange} />
-        <p>{username}</p>
+        <TextBox value={value} changed={this.handleChange} />
+        <p>{value}</p>
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <p>
