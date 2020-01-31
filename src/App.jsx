@@ -7,14 +7,18 @@ import Select from './components/Input/Select';
 
 
 /*
-1. Create a select component
-2. Render two instances of the select component
+Next: Put arrays "gender" and "hobbies" in App/state and use instance props
+Next: Add a state field to store the choices
+Next: Wire function to handle event
+
+1. Create a select component--DONE
+2. Render two instances of the select component--DONE
 3. First instance should be a gender selection
-4. Second instance will be
-5. First - Gender ID: gender fluid, gender variant, genderqueer, gender questioning,
-   gender nonconforming, agender, bigender, cisgender, cisgender female, cisgender male.
+   a. First - Gender ID: gender fluid, gender variant, genderqueer, gender questioning,
+   Gender ID: gender nonconforming, agender, bigender, cisgender, cisgender female, cisgender male.
    --only one option can be selected
-6. Second - Hobbies: sports, crafts, academics, nature, artistry, gaming, other
+4. Second instance will be hobby choices.
+   Hobbies: sports, crafts, academics, nature, artistry, gaming, other
    --can select more than one option
    --"other" should have an input text box
 Q1. What happens if I put the arrays in App/state? If I want the Select component to be as

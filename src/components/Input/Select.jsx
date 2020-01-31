@@ -18,10 +18,12 @@ class Select extends Component {
     return (
       <form>
         <label>
-              {title}
-          <select value={['gender fluid', 'gender variant', 'genderqueer', 'gender questioning',
-        'gender nonconforming', 'agender', 'bigender', 'cisgender', 'cisgender female', 'cisgender male',]} onChange={this.handleChange} >
-          </select>
+          {title}
+          <select
+            value={['gender fluid', 'gender variant', 'genderqueer', 'gender questioning',
+              // eslint-disable-next-line react/jsx-max-props-per-line
+              'gender nonconforming', 'agender', 'bigender', 'cisgender', 'cisgender female', 'cisgender male']} onChange={this.handleChange}
+          />
         </label>
       </form>
     );
