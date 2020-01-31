@@ -3,16 +3,21 @@ import logo from './logo.svg';
 import './App.css';
 import Button from './components/Button/Button';
 import TextBox from './components/Input/TextBox';
+import Select from './components/Input/Select';
 
-// Create input box component similar to Button. |) () |\| |<
-// On App create a new variable called username and add it into state. |) () |\| |<
-// When a user types into the input box it needs to update the variable. |) () |\| |<
-// I need to create a <p> field to display text |) () |\| |<
-// Whatever is being updated needs to be displayed
-// The variable is on App so whatever I change needs to be updated on App
-// Try onChange first.
-// no state in input component. State must be inculded in the parent of input
-// no hooks
+
+/*
+1. Create a select component
+2. Render two instances of the select component
+3. First instance should be a gender selection
+4. Second instance will be
+5. First - Gender ID: gender fluid, gender variant, genderqueer, gender questioning,
+   gender nonconforming, agender, bigender, cisgender, cisgender female, cisgender male.
+   --only one option can be selected
+6. Second - Hobbies: sports, crafts, academics, nature, artistry, gaming, other
+   --can select more than one option
+   --"other" should have an input text box
+*/
 
 class App extends PureComponent {
   constructor(props) {
