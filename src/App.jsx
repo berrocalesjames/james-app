@@ -7,7 +7,7 @@ import TextBox from './components/Input/TextBox';
 // Create input box component similar to Button. |) () |\| |<
 // On App create a new variable called username and add it into state. |) () |\| |<
 // When a user types into the input box it needs to update the variable. |) () |\| |<
-  // I need to create a <p> field to display text |) () |\| |<
+// I need to create a <p> field to display text |) () |\| |<
 // Whatever is being updated needs to be displayed
 // The variable is on App so whatever I change needs to be updated on App
 // Try onChange first.
@@ -19,9 +19,9 @@ class App extends PureComponent {
     super(props);
     console.log('App Component Started');
     this.handleChange = this.handleChange.bind(this);
-  }
-  state = {
-    username: "",
+    this.state = {
+      username: '',
+    };
   }
 
   handleChange(event) {
@@ -29,17 +29,18 @@ class App extends PureComponent {
   }
 
   render() {
+    const { username } = this.state;
     return (
       <div className="App">
         <Button title="Press Me" />
         <Button title="Tap Me" />
         <TextBox changed={this.handleChange} />
-        <p>{this.state.username}</p>
+        <p>{username}</p>
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <p>
             James
-            <code>src/App.js</code>
+            <code>src/App.js </code>
             and save to reload.
           </p>
           <a

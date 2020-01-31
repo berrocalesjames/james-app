@@ -6,27 +6,31 @@ class Button extends PureComponent {
     super(props);
     this.buttonStateChanger = this.buttonStateChanger.bind(this);
     console.log('Button Component started');
+    this.state = {
+      pressed: true,
+      btnClass: 'initialButton',
+    };
   }
-  state = {
-    pressed: true,
-    btnClass: 'initialButton',
-  };
 
   buttonStateChanger() {
     console.log('Button State Changing');
-    this.setState({ 
-      pressed: !this.state.pressed,
-      btnClass: this.state.pressed ? 'pressedButton' : 'initialButton'
-    });
+    const { pressed, btnClass } = this.state;
+    this.setState((prevState) => ({
+      pressed: !prevState,
+      btnClass: pressed ? 'pressedButton' : 'initialButton',
+    }));
+    console.log(`Button state is ${pressed}`);
+    console.log(`Button CSS class is now ${btnClass}`);
   }
 
   render() {
     const { title } = this.props;
+    const { btnClass } = this.state;
     return (
       <div>
         <button
           type="button"
-          className={this.state.btnClass}
+          className={btnClass}
           onClick={this.buttonStateChanger}
         >
           {title}
