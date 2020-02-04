@@ -3,7 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import Button from './components/Button/Button';
 import TextBox from './components/Input/TextBox';
-import Select from './components/Input/Select';
+import GenderSelect from './components/Input/genderSelect';
 
 
 /*
@@ -17,6 +17,9 @@ Next: Wire function to handle event
    a. First - Gender ID: gender fluid, gender variant, genderqueer, gender questioning,
    Gender ID: gender nonconforming, agender, bigender, cisgender, cisgender female, cisgender male.
    --only one option can be selected
+   *_*_*_*Right now it is hard-coded to each component. Maybe I can create a functional select
+    component and put all of the state data in the App component and render it with options
+    as props?
 4. Second instance will be hobby choices.
    Hobbies: sports, crafts, academics, nature, artistry, gaming, other
    --can select more than one option
@@ -46,8 +49,8 @@ class App extends PureComponent {
         <Button title="Press Me" />
         <Button title="Tap Me" />
         <TextBox value={value} changed={this.handleChange} />
-        <Select title="Choose one gender identification" />
-        <Select title="Choose one or more hobbies" />
+        <GenderSelect title="Choose one gender identification" />
+        <GenderSelect title="Choose one or more hobbies" />
         <p>{value}</p>
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
