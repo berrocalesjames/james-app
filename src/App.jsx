@@ -3,9 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import Button from './components/Button/Button';
 import TextBox from './components/Input/TextBox';
-import GenderSelect from './components/Input/genderSelect';
-import HobbySelect from './components/Input/hobbySelect';
-
+import Select from './components/Input/Select';
 
 
 /*
@@ -51,8 +49,7 @@ class App extends PureComponent {
         <Button title="Press Me" />
         <Button title="Tap Me" />
         <TextBox value={value} changed={this.handleChange} />
-        <GenderSelect title="Choose one gender identification" />
-        <HobbySelect title="Choose one or more hobbies" />
+        <Select />
         <p>{value}</p>
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
