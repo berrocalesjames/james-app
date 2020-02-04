@@ -26,6 +26,11 @@ Next: Wire function to handle event
    --"other" should have an input text box
 Q1. What happens if I put the arrays in App/state? If I want the Select component to be as
     generic as possible, then specific state data should be consolidated to App? right?
+Q2. Right now everything is hard coded in the Select component but shouldn't I create a functional
+    select component and put all of the state data in the App component and render it with options
+    as props?
+Q3. Shouldn't the hobby select menu allow for multiple selections?
+Q4.
 */
 
 class App extends PureComponent {

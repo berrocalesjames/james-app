@@ -3,17 +3,20 @@ import React, { Component } from 'react';
 class Select extends Component {
   constructor(props) {
     super(props);
-    this.handleChange = this.handleChange.bind(this);
+    this.handleInputChange = this.handleInputChange.bind(this);
     this.state = {
       gender: '',
-      hobby: [],
+      hobby: '',
     };
   }
 
-  handleChange(event) {
+  handleInputChange(event) {
+    const { target } = event;
+    const { value } = target;
+    const { name } = target;
+
     this.setState({
-      gender: event.target.value,
-      hobby: event.target.value,
+      [name]: value,
     });
   }
 
@@ -21,9 +24,9 @@ class Select extends Component {
     const { gender, hobby } = this.state;
     return (
       <form>
-        <label >
-        Please choose gender identification: 
-          <select value={gender} onChange={this.handleChange}>
+        <label>
+        Please choose gender identification:
+          <select name="gender" value={gender} onChange={this.handleInputChange}>
             <option value="gender nonconforming">Gender Nonconforming</option>
             <option value="agender">Agender</option>
             <option value="bigender">Bigender</option>
@@ -34,8 +37,8 @@ class Select extends Component {
         </label>
         <br />
         <label>
-          Please choose one or more hobbies: 
-          <select multiple={true} value={hobby} onChange={this.handleChange}>
+          Please choose one or more hobbies:
+          <select name="hobby" value={hobby} onChange={this.handleInputChange}>
             <option value="sports">Sports</option>
             <option value="crafts">Crafts</option>
             <option value="academics">Academics</option>
@@ -48,7 +51,6 @@ class Select extends Component {
       </form>
     );
   }
-  // const { changed, value } = props;
 }
 
 export default Select;
