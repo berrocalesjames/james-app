@@ -5,24 +5,25 @@ class Select extends Component {
     super(props);
     this.state = {
       value: '',
-      gender: [
-        'gender fluid', 'gender variant', 'genderqueer', 'gender questioning',
-        'gender nonconforming', 'agender', 'bigender', 'cisgender', 'cisgender female', 'cisgender male',
-      ],
+      gender: [],
     };
   }
 
+  handleChange(event) {
+    this.setState({
+      value: event.target.value,
+    });
+  }
+
   render() {
-    const { gender } = this.state;
+    const { gender, value } = this.state;
     const { title } = this.props;
     return (
       <form>
         <label>
           {title}
           <select
-            value={['gender fluid', 'gender variant', 'genderqueer', 'gender questioning',
-              // eslint-disable-next-line react/jsx-max-props-per-line
-              'gender nonconforming', 'agender', 'bigender', 'cisgender', 'cisgender female', 'cisgender male']} onChange={this.handleChange}
+            value={value} onChange={this.handleChange}
           />
         </label>
       </form>
