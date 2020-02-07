@@ -12,24 +12,51 @@ class App extends PureComponent {
     this.handleChange = this.handleChange.bind(this);
     this.state = {
       value: '',
+      gender: [
+        'Gender Nonconforming',
+        'Agender',
+        'Bigender',
+        'Cisgender',
+        'Cisgender Male',
+        'Cisgender Female',
+      ],
+      hobby: [
+        'Sports',
+        'Crafts',
+        'Academics',
+        'Nature',
+        'Artistry',
+        'Gaming',
+        'Other',
+      ],
+      selectedGender: 'Unselected',
+      selectedHobby: 'Unselected',
     };
   }
+
 
   handleChange(event) {
     this.setState({ value: event.target.value });
   }
 
   render() {
-    const { value } = this.state;
+    const { selectedGender, selectedHobby, value } = this.state;
     return (
       <div className="App">
-        <h1>Z-Dawg's Ugly App</h1>
+        <h1>Ugly App</h1>
+        <h2>by Z-Dawg</h2>
         <div>
           <Button title="Press Me" />
           <Button title="Tap Me" />
           <TextBox value={value} changed={this.handleChange} />
-          <Select />
+          <Select data={this.state.gender} />
+          <Select data={this.state.hobby} />
           <p>{value}</p>
+          <p>
+            {selectedGender}
+            and
+            {selectedHobby}
+          </p>
         </div>
       </div>
     );
