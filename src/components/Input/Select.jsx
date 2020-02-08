@@ -1,33 +1,27 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 
-class Select extends Component {
-  constructor(props) {
-    super(props);
-    this.handleChange = this.handleChange.bind(this);
-  }
-
-  handleChange(event) {
-    const selectedValue = event.target.value;
-    this.props.onSelectChange(selectedValue);
-  }
-
+class Select extends PureComponent {
   render() {
-    const { data } = this.props;
-    const options = data.map((data) => (
+    const { data, name, changed } = this.props;
+    const options = data.map((elements) => (
       <option
-        value={data}
+        value={elements}
       >
-        {data}
+        {elements}
       </option>
     ));
     return (
-      <select onChange={this.handleChange}>
-        <option>
-Select
-          {this.props.name}
-        </option>
-        {options}
-      </select>
+      <label>
+        {name}
+        <select onChange={changed}>
+          <option>
+              Select
+            {' '}
+            {name}
+          </option>
+          {options}
+        </select>
+      </label>
     );
   }
 }

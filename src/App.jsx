@@ -29,18 +29,22 @@ class App extends PureComponent {
         'Gaming',
         'Other',
       ],
-      selectedGender: 'Unselected',
-      selectedHobby: 'Unselected',
+      selectedGender: '',
+      selectedHobby: '',
     };
   }
 
 
   handleChange(event) {
-    this.setState({ value: event.target.value });
+    const { target } = event;
+    const { value } = target;
+    this.setState({ value });
   }
 
   render() {
-    const { selectedGender, selectedHobby, value } = this.state;
+    const {
+      selectedGender, selectedHobby, value, gender, hobby,
+    } = this.state;
     return (
       <div className="App">
         <h1>Ugly App</h1>
@@ -48,13 +52,18 @@ class App extends PureComponent {
         <div>
           <Button title="Press Me" />
           <Button title="Tap Me" />
-          <TextBox value={value} changed={this.handleChange} />
-          <Select data={this.state.gender} />
-          <Select data={this.state.hobby} />
+          <TextBox name="textbox" value={value} changed={this.handleChange} />
+          <Select name="Gender" data={gender} />
+          <br />
+          <Select name="Hobby" data={hobby} changed={this.handleSelectChange} />
           <p>{value}</p>
           <p>
+            You have chosen
+            {' '}
             {selectedGender}
-            and
+            {' '}
+and
+            {' '}
             {selectedHobby}
           </p>
         </div>
