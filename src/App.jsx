@@ -11,7 +11,7 @@ class App extends PureComponent {
     console.log('App Component Started');
     this.handleChange = this.handleChange.bind(this);
     this.state = {
-      value: '',
+      username: '',
       gender: [
         'Gender Nonconforming',
         'Agender',
@@ -38,12 +38,13 @@ class App extends PureComponent {
   handleChange(event) {
     const { target } = event;
     const { value } = target;
-    this.setState({ value });
+    const name = target.name
+    this.setState({ [name]: value });
   }
 
   render() {
     const {
-      selectedGender, selectedHobby, value, gender, hobby,
+      selectedGender, selectedHobby, username, gender, hobby,
     } = this.state;
     return (
       <div className="App">
@@ -52,11 +53,11 @@ class App extends PureComponent {
         <div>
           <Button title="Press Me" />
           <Button title="Tap Me" />
-          <TextBox name="textbox" value={value} changed={this.handleChange} />
+          <TextBox name="username" value={username} changed={this.handleChange} />
           <Select name="Gender" data={gender} />
           <br />
           <Select name="Hobby" data={hobby} changed={this.handleSelectChange} />
-          <p>{value}</p>
+          <p>{username}</p>
           <p>
             You have chosen
             {' '}
