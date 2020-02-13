@@ -17,16 +17,18 @@ class Select extends PureComponent {
       </option>
     ));
     return (
-      <label>
-        {label}
-        <select name={name} onChange={changed}>
-          <option>
+      <div>
+        <label>
+          {label}
+          <select name={name} onChange={changed}>
+            <option>
             Select
-            {' '}
-          </option>
-          {options}
-        </select>
-      </label>
+              {' '}
+            </option>
+            {options}
+          </select>
+        </label>
+      </div>
     );
   }
 }
