@@ -2,9 +2,15 @@ import React, { PureComponent } from 'react';
 
 class Select extends PureComponent {
   render() {
-    const { data, name, changed } = this.props;
+    const {
+      data,
+      name,
+      changed,
+      label,
+    } = this.props;
     const options = data.map((elements) => (
       <option
+        key={Math.random()}
         value={elements}
       >
         {elements}
@@ -12,12 +18,11 @@ class Select extends PureComponent {
     ));
     return (
       <label>
-        {name}
-        <select onChange={changed}>
+        {label}
+        <select name={name} onChange={changed}>
           <option>
             Select
             {' '}
-            {name}
           </option>
           {options}
         </select>
