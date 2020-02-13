@@ -15,7 +15,7 @@ class Select extends PureComponent {
         {name}
         <select onChange={changed}>
           <option>
-              Select
+            Select
             {' '}
             {name}
           </option>
