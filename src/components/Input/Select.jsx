@@ -8,45 +8,38 @@ class Select extends PureComponent {
       changed,
       label,
     } = this.props;
-    const options = data.map((elements) => (
+    const menu = data.map((options) => (
       <option
         key={Math.random()}
-        value={elements}
+        value={options}
       >
-        {elements}
+        {options}
       </option>
     ));
     return (
-      <div>
-        <label>
-          {label}
-          <select name={name} onChange={changed}>
-            <option>
+      <label>
+        {label}
+        <select name={name} onChange={changed}>
+          <option>
             Select
-              {' '}
-            </option>
-            {options}
-          </select>
-        </label>
-      </div>
+            {' '}
+          </option>
+          {menu}
+        </select>
+      </label>
     );
   }
 }
-/*
-  let options = gender.map((element) => {
-    <option
-        key={element.id}
-        value={element.id}
-    >
-        {element.name}
-    </option>
-  });
-return (
-    <select name="gender" onChange={this.handleChange}>
-        <option>Choose </option>
-    </select>
-);
-};
-*/
+// return this.props.persons.map((person, index) => {
+//   return (
+//     <Person
+//       click={() => this.props.clicked(index)}
+//       name={person.name}
+//       age={person.age}
+//       key={person.id}
+//       changed={event => this.props.changed(event, person.id)}
+//     />
+//   );
+// })
 
 export default Select;
