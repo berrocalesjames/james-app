@@ -3,14 +3,14 @@ import React, { PureComponent } from 'react';
 class Select extends PureComponent {
   render() {
     const {
-      data,
+      value,
       name,
       changed,
       label,
     } = this.props;
-    const menu = data.map((options) => (
+    const menu = value.map((options) => (
       <option
-        key={Math.random()}
+        key={value.key}
         value={options}
       >
         {options}

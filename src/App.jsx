@@ -12,25 +12,29 @@ class App extends PureComponent {
     this.handleChange = this.handleChange.bind(this);
     this.state = {
       username: '',
-      gender: [
-        'Gender Nonconforming',
-        'Agender',
-        'Bigender',
-        'Cisgender',
-        'Cisgender Male',
-        'Cisgender Female',
-      ],
-      hobby: [
-        'Sports',
-        'Crafts',
-        'Academics',
-        'Nature',
-        'Artistry',
-        'Gaming',
-        'Other',
-      ],
-      selectedGender: '',
-      selectedHobby: '',
+      gender: {
+        key: 'a1',
+        optionList: [
+          'Gender Nonconforming',
+          'Agender',
+          'Bigender',
+          'Cisgender',
+          'Cisgender Male',
+          'Cisgender Female',
+        ],
+      },
+      hobby: {
+        key: 'b2',
+        optionList: [
+          'Sports',
+          'Crafts',
+          'Academics',
+          'Nature',
+          'Artistry',
+          'Gaming',
+          'Other',
+        ],
+      },
     };
   }
 
@@ -63,16 +67,18 @@ class App extends PureComponent {
             changed={this.handleChange}
           />
           <Select
+            key={gender.key}
             label="Gender"
             name="selectedGender"
-            data={gender}
+            value={gender.optionList}
             changed={this.handleChange}
           />
           <br />
           <Select
+            key={hobby.key}
             label="Hobby"
             name="selectedHobby"
-            data={hobby}
+            value={hobby.optionList}
             changed={this.handleChange}
           />
           <p>{username}</p>
