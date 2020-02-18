@@ -10,7 +10,6 @@ class Select extends PureComponent {
     } = this.props;
     const menu = value.map((options) => (
       <option
-        key={value.key}
         value={options}
       >
         {options}

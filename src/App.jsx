@@ -14,6 +14,7 @@ class App extends PureComponent {
       username: '',
       gender: {
         key: 'a1',
+        selection: '',
         optionList: [
           'Gender Nonconforming',
           'Agender',
@@ -25,6 +26,7 @@ class App extends PureComponent {
       },
       hobby: {
         key: 'b2',
+        selection: '',
         optionList: [
           'Sports',
           'Crafts',
@@ -48,8 +50,6 @@ class App extends PureComponent {
 
   render() {
     const {
-      selectedGender,
-      selectedHobby,
       username,
       gender,
       hobby,
@@ -69,7 +69,7 @@ class App extends PureComponent {
           <Select
             key={gender.key}
             label="Gender"
-            name="selectedGender"
+            name="selection"
             value={gender.optionList}
             changed={this.handleChange}
           />
@@ -77,7 +77,7 @@ class App extends PureComponent {
           <Select
             key={hobby.key}
             label="Hobby"
-            name="selectedHobby"
+            name="selection"
             value={hobby.optionList}
             changed={this.handleChange}
           />
@@ -85,11 +85,11 @@ class App extends PureComponent {
           <p>
             You have chosen
             {' '}
-            {selectedGender}
+            {gender.selection}
             {' '}
 and
             {' '}
-            {selectedHobby}
+            {hobby.selection}
           </p>
         </div>
       </div>
