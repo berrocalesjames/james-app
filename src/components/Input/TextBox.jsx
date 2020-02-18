@@ -2,9 +2,9 @@ import React from 'react';
 
 const TextBox = (props) => {
   const {
-    changed,
-    username,
+    value,
     name,
+    changed,
   } = props;
   return (
     <form>
@@ -13,7 +13,7 @@ const TextBox = (props) => {
         <input
           name={name}
           type="text"
-          value={username}
+          value={value}
           onChange={changed}
         />
       </label>
