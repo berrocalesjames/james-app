@@ -16,7 +16,7 @@ class Select extends PureComponent {
       </option>
     ));
     return (
-      <label>
+      <label htmlFor={name}>
         {label}
         <select name={name} onChange={changed}>
           <option>

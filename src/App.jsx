@@ -12,31 +12,25 @@ class App extends PureComponent {
     this.handleChange = this.handleChange.bind(this);
     this.state = {
       username: '',
-      gender: {
-        key: 'a1',
-        selection: '',
-        optionList: [
-          'Gender Nonconforming',
-          'Agender',
-          'Bigender',
-          'Cisgender',
-          'Cisgender Male',
-          'Cisgender Female',
-        ],
-      },
-      hobby: {
-        key: 'b2',
-        selection: '',
-        optionList: [
-          'Sports',
-          'Crafts',
-          'Academics',
-          'Nature',
-          'Artistry',
-          'Gaming',
-          'Other',
-        ],
-      },
+      gender: '',
+      hobby: '',
+      genderChoices: [
+        'Gender Nonconforming',
+        'Agender',
+        'Bigender',
+        'Cisgender',
+        'Cisgender Male',
+        'Cisgender Female',
+      ],
+      hobbyChoices: [
+        'Sports',
+        'Crafts',
+        'Academics',
+        'Nature',
+        'Artistry',
+        'Gaming',
+        'Other',
+      ],
     };
   }
 
@@ -53,6 +47,8 @@ class App extends PureComponent {
       username,
       gender,
       hobby,
+      genderChoices,
+      hobbyChoices,
     } = this.state;
     return (
       <div className="App">
@@ -67,29 +63,29 @@ class App extends PureComponent {
             changed={this.handleChange}
           />
           <Select
-            key={gender.key}
+            key={genderChoices.key}
             label="Gender"
-            name="selection"
-            value={gender.optionList}
+            name="gender"
+            value={genderChoices}
             changed={this.handleChange}
           />
           <br />
           <Select
-            key={hobby.key}
+            key={hobbyChoices.key}
             label="Hobby"
-            name="selection"
-            value={hobby.optionList}
+            name="hobby"
+            value={hobbyChoices}
             changed={this.handleChange}
           />
           <p>{username}</p>
           <p>
             You have chosen
             {' '}
-            {gender.selection}
+            {gender}
             {' '}
 and
             {' '}
-            {hobby.selection}
+            {hobby}
           </p>
         </div>
       </div>
