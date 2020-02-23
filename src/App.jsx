@@ -1,57 +1,103 @@
 import React, { PureComponent } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import Button from './components/Button/Button';
 import TextBox from './components/Input/TextBox';
+import Select from './components/Input/Select';
 
-// Create input box component similar to Button. |) () |\| |<
-// On App create a new variable called username and add it into state. |) () |\| |<
-// When a user types into the input box it needs to update the variable. |) () |\| |<
-// I need to create a <p> field to display text |) () |\| |<
-// Whatever is being updated needs to be displayed
-// The variable is on App so whatever I change needs to be updated on App
-// Try onChange first.
-// no state in input component. State must be inculded in the parent of input
-// no hooks
 
 class App extends PureComponent {
   constructor(props) {
     super(props);
     console.log('App Component Started');
     this.handleChange = this.handleChange.bind(this);
+    this.handleChange = this.handleChange.bind(this);
     this.state = {
-      value: '',
+      user: {
+        username: '',
+        gender: '',
+        hobby: '',
+      },
+      genderChoices: [
+        'Gender Nonconforming',
+        'Agender',
+        'Bigender',
+        'Cisgender',
+        'Cisgender Male',
+        'Cisgender Female',
+      ],
+      hobbyChoices: [
+        'Sports',
+        'Crafts',
+        'Academics',
+        'Nature',
+        'Artistry',
+        'Gaming',
+        'Other',
+      ],
     };
   }
 
+
   handleChange(event) {
-    this.setState({ value: event.target.value });
+    const { value } = event.target;
+    const { name } = event.target;
+    this.setState(
+      (prevState) => ({
+        user: {
+          ...prevState.user,
+          [name]: value,
+        },
+      }),
+      () => {
+        const { user } = this.state;
+        console.log('[App.jsx] handleChange() user:', user);
+      },
+    );
   }
 
   render() {
-    const { value } = this.state;
+    const {
+      user,
+      genderChoices,
+      hobbyChoices,
+    } = this.state;
+    const {
+      gender,
+      hobby,
+    } = user;
     return (
       <div className="App">
-        <Button title="Press Me" />
-        <Button title="Tap Me" />
-        <TextBox value={value} changed={this.handleChange} />
-        <p>{value}</p>
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
+        <h1>Ugly App</h1>
+        <h2>by Z-Dawg</h2>
+        <div>
+          <Button title="Press Me" />
+          <Button title="Tap Me" />
+          <TextBox
+            name="username"
+            value={user.username}
+            changed={this.handleChange}
+          />
+          <Select
+            title="Gender"
+            name="gender"
+            options={genderChoices}
+            value={gender}
+            changed={this.handleChange}
+
+          />
+          <br />
+          <Select
+            title="Hobby"
+            name="hobby"
+            options={hobbyChoices}
+            value={hobby}
+            changed={this.handleChange}
+          />
+          <p>{user.username}</p>
           <p>
-            James
-            <code>src/App.js </code>
-            and save to reload.
+            {gender && hobby ? `You have chosen ${gender} and ${hobby}` : null}
           </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        </div>
       </div>
     );
   }
