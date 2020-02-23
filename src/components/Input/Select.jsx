@@ -2,7 +2,6 @@ import React, { PureComponent } from 'react';
 
 class Select extends PureComponent {
   render() {
-    console.log('[Select.jsx] rendering...');
     const {
       options,
       name,
@@ -18,6 +17,7 @@ class Select extends PureComponent {
         {item}
       </option>
     ));
+    console.log('[Select.jsx] rendering...');
     return (
       menu.length
         ? (
