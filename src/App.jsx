@@ -10,10 +10,13 @@ class App extends PureComponent {
     super(props);
     console.log('App Component Started');
     this.handleChange = this.handleChange.bind(this);
+    this.handleChange = this.handleChange.bind(this);
     this.state = {
-      username: '',
-      gender: '',
-      hobby: '',
+      user: {
+        username: '',
+        gender: '',
+        hobby: '',
+      },
       genderChoices: [
         'Gender Nonconforming',
         'Agender',
@@ -36,20 +39,32 @@ class App extends PureComponent {
 
 
   handleChange(event) {
-    const { target } = event;
-    const { value } = target;
-    const { name } = target;
-    this.setState({ [name]: value });
+    const { value } = event.target;
+    const { name } = event.target;
+    this.setState(
+      (prevState) => ({
+        user: {
+          ...prevState.user,
+          [name]: value,
+        },
+      }),
+      () => {
+        const { user } = this.state;
+        console.log('[App.jsx] handleChange() user:', user);
+      },
+    );
   }
 
   render() {
     const {
-      username,
-      gender,
-      hobby,
+      user,
       genderChoices,
       hobbyChoices,
     } = this.state;
+    const {
+      gender,
+      hobby,
+    } = user;
     return (
       <div className="App">
         <h1>Ugly App</h1>
@@ -59,33 +74,28 @@ class App extends PureComponent {
           <Button title="Tap Me" />
           <TextBox
             name="username"
-            value={username}
+            value={user.username}
             changed={this.handleChange}
           />
           <Select
-            key={genderChoices.key}
-            label="Gender"
+            title="Gender"
             name="gender"
-            value={genderChoices}
+            options={genderChoices}
+            value={gender}
             changed={this.handleChange}
+
           />
           <br />
           <Select
-            key={hobbyChoices.key}
-            label="Hobby"
+            title="Hobby"
             name="hobby"
-            value={hobbyChoices}
+            options={hobbyChoices}
+            value={hobby}
             changed={this.handleChange}
           />
-          <p>{username}</p>
+          <p>{user.username}</p>
           <p>
-            You have chosen
-            {' '}
-            {gender}
-            {' '}
-and
-            {' '}
-            {hobby}
+            {gender && hobby ? `You have chosen ${gender} and ${hobby}` : null}
           </p>
         </div>
       </div>
