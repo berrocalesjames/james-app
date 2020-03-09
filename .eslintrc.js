@@ -1,4 +1,5 @@
 module.exports = {
+  parser: 'babel-eslint',
   env: {
     browser: true,
     es6: true,
@@ -23,7 +24,5 @@ module.exports = {
   ],
   rules: {
     "no-console":0,
-    "parser": "babel-eslint"
-
   },
 };

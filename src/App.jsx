@@ -9,8 +9,6 @@ class App extends PureComponent {
   constructor(props) {
     super(props);
     console.log('App Component Started');
-    this.handleChange = this.handleChange.bind(this);
-    this.handleChange = this.handleChange.bind(this);
     this.state = {
       user: {
         username: '',
@@ -18,27 +16,28 @@ class App extends PureComponent {
         hobby: '',
       },
       genderChoices: [
-        'Gender Nonconforming',
-        'Agender',
-        'Bigender',
-        'Cisgender',
-        'Cisgender Male',
-        'Cisgender Female',
+        { id: 'a1', value: 'gender_nonconforming', label: 'Gender Nonconforming' },
+        { id: 'a2', value: 'agender', label: 'Agender' },
+        { id: 'a3', value: 'bigender', label: 'Bigender' },
+        { id: 'a4', value: 'cisgender', label: 'Cisgender' },
+        { id: 'a5', value: 'cisgender_male', label: 'Cisgender Male' },
+        { id: 'a6', value: 'cisgender_female', label: 'Cisgender Female' },
       ],
       hobbyChoices: [
-        'Sports',
-        'Crafts',
-        'Academics',
-        'Nature',
-        'Artistry',
-        'Gaming',
-        'Other',
+        { id: 'b1', value: 'sports', label: 'Sports' },
+        { id: 'b2', value: 'crafts', label: 'Crafts' },
+        { id: 'b3', value: 'academics', label: 'Academics' },
+        { id: 'b4', value: 'nature', label: 'Nature' },
+        { id: 'b5', value: 'artistry', label: 'Artistry' },
+        { id: 'b6', value: 'gaming', label: 'Gaming' },
+        { id: 'b7', value: 'other', label: 'Other' },
       ],
     };
   }
 
 
-  handleChange(event) {
+  handleChange = (event) => {
+    console.log(event.target);
     const { value } = event.target;
     const { name } = event.target;
     this.setState(

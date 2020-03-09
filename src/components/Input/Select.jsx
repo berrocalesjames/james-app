@@ -1,6 +1,17 @@
 import React, { PureComponent } from 'react';
 
 class Select extends PureComponent {
+  renderOptions = () => {
+    console.log('[Select.jsx] renderOptions()...');
+    const { options } = this.props;
+    const menu = options.map((option) => (
+      <option key={option.id} value={option.value} label={option.label}>
+        {option.label}
+      </option>
+    ));
+    return menu;
+  }
+
   render() {
     const {
       options,
@@ -9,25 +20,16 @@ class Select extends PureComponent {
       title,
       value,
     } = this.props;
-    const menu = options.map((item) => (
-      <option
-        key={item}
-        value={item}
-      >
-        {item}
-      </option>
-    ));
     console.log('[Select.jsx] rendering...');
     return (
-      menu.length
-        ? (
-          <label htmlFor={name}>
-            {`${title} : `}
-            <select value={value} name={name} onChange={changed}>
-              {menu}
-            </select>
-          </label>
-        ) : null
+      (
+        <label htmlFor={name}>
+          {`${title} : `}
+          <select value={value} name={name} onChange={changed}>
+            {options && options.length ? this.renderOptions() : null}
+          </select>
+        </label>
+      )
     );
   }
 }
