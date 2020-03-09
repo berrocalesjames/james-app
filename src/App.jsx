@@ -3,6 +3,7 @@ import './App.css';
 import Button from './components/Button/Button';
 import TextBox from './components/Input/TextBox';
 import Select from './components/Input/Select';
+import Radio from './components/Input/Radio';
 
 
 class App extends PureComponent {
@@ -96,6 +97,9 @@ class App extends PureComponent {
           <p>
             {gender && hobby ? `You have chosen ${gender} and ${hobby}` : null}
           </p>
+          <Radio
+            name="radio"
+          />
         </div>
       </div>
     );
