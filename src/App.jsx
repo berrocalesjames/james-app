@@ -98,7 +98,12 @@ class App extends PureComponent {
             {gender && hobby ? `You have chosen ${gender} and ${hobby}` : null}
           </p>
           <Radio
-            name="radio"
+            name='gender'
+            title='Gender Choices'
+            value={gender}
+            changed={this.handleRadio}
+            options={genderChoices}
+            changed={this.handleChange}
           />
         </div>
       </div>
